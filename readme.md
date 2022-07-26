@@ -14,6 +14,7 @@
 ## 2. rps : Image Classification (web real time)
 * Base Model : MobileNet V2 
 * 출력층을 3개의 node 를 갖는 dense layer로 구성해 classification layer로 만듬
+![image](https://user-images.githubusercontent.com/89177051/180946512-a96e6f9c-5c48-4eeb-a6ee-7b9e171874b5.png)
 * 첨부된 colab notebook 파일은 web cam 지원안되고, 저장소에 저장한 이미지를 읽어와서 테스트 가능함 (이미지는 가로 세로 pixel size 가 같아야 함 : 노트북에서 1x128x128x3 으로 resize 시 에러발생될 수 있음)
 * web real time 구현의 경우 Javascript 코드는 Lina Sachuk 씨의 것을 참고 (https://github.com/LinaSachuk)
 * 링크를 통해 demo 시연이 가능합니다. (https://seoyunki.github.io/rps_toy/)
