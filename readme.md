@@ -1,11 +1,12 @@
 # 이곳은 Codestates Section4 Project 저장용 Repo 입니다.
 
 아래의 3가지 모델이 저장되어 있습니다.
+* 아래 3가지 모델 모두 Web demo 구현시에는 Javascript 의 Tensorflow 지원 라이브러리인 
 
 1. quickdraw : Image Classification
 * Alex Net 구성 참고하여 모델 구성 : 5xConv Layer + 1xFlatten + 2xDense Layer
-* 
 * class 10ea x data 50,000 개로 학습 진행 (class 는 random 추출)
+* Callbacks : Early Stopping (top_3_accuracy) 
 * web demo 구현시 Javascript 코드는 Zaid Alyafeai 씨의 것을 참고 (https://github.com/zaidalyafeai/zaidalyafeai.github.io)
 * 링크를 통해 demo 시연이 가능합니다. (https://seoyunki.github.io/quickdraw_toy/)
 
