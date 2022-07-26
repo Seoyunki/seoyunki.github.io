@@ -1,0 +1,101 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+.jumbotron {
+  background-color: rgba(105, 127, 164, 0.2) !important;
+
+  /* Full height */
+  /* height: 20%; */
+
+  /* Center and scale the image nicely */
+  /* background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; */
+}
+
+/* navigation */
+.navbar {
+  background-color: rgba(105, 127, 164, 0.2) !important;
+}
+
+.content {
+  text-align: center;
+}
+
+.form input {
+  height: 3em;
+}
+
+.btn {
+  width: 100%;
+}
+
+.form button {
+  height: 3em;
+  padding: 0 1em;
+  margin: 1em 0;
+  border: none;
+  background: grey;
+  color: white;
+}
+
+.add_buttons button {
+  margin: 1em 0;
+  display: none;
+}
+
+.container-fluid {
+  margin: 4em 0;
+}
+
+#img {
+  width: 80%;
+}
+
+#clipboard {
+  width: 6%;
+}
+
+#clipboard_logo {
+  width: 100%;
+}
+
+#webcam {
+  width: 100%;
+}
+
+#label {
+  text-transform: capitalize;
+}
+
+.choice {
+  margin: 18% 0 10% 0;
+  background-color: white;
+}
+
+.bars {
+  display: none;
+}
+
+#myProgress {
+  width: 100%;
+  background-color: grey;
+}
+
+#myBar {
+  width: 1%;
+  height: 30px;
+  background-color: green;
+}
+
+/* Footer */
+.fa {
+  color: rgba(105, 127, 164, 0.6);
+}
+
+.fa:hover {
+  color: rgba(105, 127, 164, 0.8);
+}

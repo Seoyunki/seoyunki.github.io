@@ -1,0 +1,125 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>가위바위보 VS PC</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Load the latest version of TensorFlow.js. This is required to use MobileNet. -->
+	  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+    
+    <!-- Load the MobileNet model. -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
+
+    <!--  Add an import of KNN Classifier  -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/knn-classifier"></script>
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+
+  	<!-- Add icon library -->
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  </head>
+
+  <body>
+	<nav class="navbar navbar-expand-sm bg-light navbar-light">
+		<!-- Brand/logo -->
+		<a class="navbar-brand"><h2>가위바위보 게임 with Mobilnet + knn-classifier</h2></a>
+		</nav>
+
+  <div id="home" class="container-fluid">
+	<div id="game"   class="container-fluid">
+		<li>Image 입력 -> Mobilnet 통해 imbedding output 출력 -> knn-classifier 로 분류 학습</li>
+		<li>게임 시작을 위해서는 우선 아래의 Train 버튼을 눌러 학습을 시켜야 합니다.</li>
+		<br>
+		<!-- Play the game -->
+		<div class="play_game">
+			<p>충분히 학습이 되었다고 생각되면 Play를 눌러 게임을 시작합니다.</p>
+		</div>
+    <div class="row">
+      <!--좌측 Column 의 배치-->
+      <div class="col-sm-6">
+				<div class="row">
+					<div class="col">
+						<button id="train" class="btn btn-outline-success">Train</button>
+					</div>
+				</div>
+			  <div id="label" class="text-center"></div>
+			  <div id="confidences" class="text-center"></div>
+			  <!--webcam 사용 가능 모드로 설정-->
+        <video autoplay playsinline muted id="webcam"></video>
+			  <!-- 학습을 위한 버튼 추가 -->
+			  <div class="add_buttons">
+				  <div class="row">
+					  <div class="col">				
+              <button id="class-scissors" class="btn btn-outline-info">"가위" 학습하기</button>
+					  </div>
+					  <div class="col">				
+              <button id="class-rock" class="btn btn-outline-info">"바위" 학습하기</button>
+					  </div>
+					  <div class="col">				
+              <button id="class-papers" class="btn btn-outline-info">"보" 학습하기</button>
+					  </div>
+				  </div>
+			  </div>
+			</div>
+      <!--우측 Column의 배치-->
+			<div class="col-sm-6">
+				<div class="row">
+					<div class="col">
+						<button id="play" class="btn btn-outline-success">Play</button>
+					</div>
+				</div>
+				<h3 id="game_counter"></h3>
+        <!--Player 와 PC 의 선택을 출력해주는 곳-->
+				<div id="choices" class="row">
+					<!--Player 의 선택-->
+          <div class="col-sm-4 choice">
+						<div id="player_choice"></div>
+          </div>
+          <!--PC 의 선택-->
+					<div class="col-sm-4 choice">
+						<div id="computer_choice"></div>
+          </div>
+					<!--가위바위보 승패-->
+          <div class="col-sm-4 choice">
+						<div id="result"></div>
+          </div>
+				</div>
+        <!--누적 결과를 보여주는 곳-->
+				<div class="bars">
+          <!--Player 누적 결과-->
+					<p id="user_score"></p>
+					<div class="progress" style="height:40px">
+						<div class="user-bar progress-bar-striped progress-bar-animated bg-success" style="width: 0%;" style="height:40px">
+							</div>
+					</div>
+					<br>  
+					<!-- PC 누적 결과 -->
+					<p id="computer_score"></p>
+					<div class="progress" style="height:40px">
+						<div class="computer-bar progress-bar-striped progress-bar-animated bg-warning" style="width:0%; height:40px">
+							</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<!-- Javascript 파일들을 불러옵니다.  -->
+	<script src="index.js"></script>
+	<script src="game.js"></script>
+	
+  </body>
+</html>

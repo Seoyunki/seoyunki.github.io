@@ -1,0 +1,101 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>QuickDraw Small Project</title>
+
+<!-- bs4 css -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"/>
+
+<!-- css pie -->
+<link rel="stylesheet" href="pie.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+<!-- TensorFlow.js script -->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"> </script>
+
+<!-- canvas script -->
+<script src="fabric.js"></script>
+
+<!-- main script -->
+<script src = "main.js" > </script>
+
+<!-- main css -->
+<link rel = "stylesheet" href="main.css" >
+
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-light navbar-light">
+  <h1>SmallProject with QuickDraw</h1>
+  </nav>
+<div class="container-fluid">
+  <p>Quick Draw Dataset에서 임의의 class 10개 x 50000 images/class 로 훈련 시킨 모델을 사용</p>
+  <p>Model Structure : CNN (Conv Layer x 5 + Flatten x 1 + Dense X 2 + Output // training param : ?? 개) </p>
+  <p>Model Evaluation : loss (), Top 3 ~ Acc ()</p>
+</div>
+
+<div class="row">
+  <div class="col" style ='margin-left:100px;'>
+<h4 id ='status' >모델 불러오는중...</h4>
+<canvas id="canvas" width="300" height="300" class="canvas" style="border:1px solid #b9bfc9;margin-top:25px;"></canvas>
+<div class="btn-group" style = 'margin-top:40px; '>
+
+<button type="button" class="btn btn-outline-primary" onclick ='erase()' style ='margin-left:10px;' disabled>Clear</button>
+    </div>
+</div>
+  <div class="col">
+    <label for="myRange">Brush Width : </label>
+    <span class="info" id="sliderval">10</span><br>
+    <input type="range" min="5" max="20" value="10" id="myRange" style ='margin-top:20px;'>
+  </div>
+  <div class="col">
+    <section style="margin-top:80px">
+      <h4>ML모델이 닮았다고 생각하는 낙서 Top 5</h4>
+    <div class="pieID pie">
+
+    </div>
+    <ul class="pieID legend">
+      <li>
+        <em id = "sym1"></em>
+        <span id = "prob1" ></span>
+      </li>
+      <li>
+        <em id = "sym2"></em>
+        <span id = "prob2"></span>
+      </li>
+      <li>
+        <em id = "sym3"></em>
+        <span id = "prob3"></span>
+      </li>
+      <li>
+        <em id = "sym4"></em>
+        <span id = "prob4"></span>
+      </li>
+      <li>
+        <em id = "sym5"></em>
+        <span id = "prob5"></span>
+      </li>
+    </ul>
+  </section>
+</div>
+</div>
+ <div class="container-fluid" style="margin-top:30px;">
+    훈련시 사용한 Class 는 아래와 같습니다. (참고용) :<br>
+  <div id="myClassList">
+
+  </div>
+  </div>
+</body>
+<script src="pie.js"></script>
+<script>
+	console.log('starting');
+	start()
+</script>
+</html>
